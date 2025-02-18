@@ -19,7 +19,7 @@ int main() {
             rejectedCount++;
         }
     }
-printf ("Accepted products: %d\n, acceptedcount);
-printf ("Rejected products: %d\n, rejectedcount);
+printf ("Accepted products: %d\n", acceptedcount);
+printf ("Rejected products: %d\n", rejectedcount);
     return 0;
 }
