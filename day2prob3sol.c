@@ -1,31 +1,25 @@
-#include <stdio.h>
-#include <string.h>
-
 int main() {
-    int numVehicles;
-    char vehicleType[10]; // To store "Car", "Truck", or "Bike"
-    int totalRevenue = 0;
+    int vehicleCount;
+    char vehicleType[10];
+    float collection = 0;
 
     printf("Enter number of vehicles: ");
-    scanf("%d", &numVehicles);
+    scanf("%d", &vehicleCount);
 
-    printf("Enter vehicle types: ");
-    for (int i = 0; i < numVehicles; i++) {
+    for (int i = 0; i < vehicleCount; i++) { // Corrected loop start
+        printf("Enter vehicle type: ");
         scanf("%s", vehicleType);
 
         if (strcmp(vehicleType, "Car") == 0) {
-            totalRevenue += 50;
+            collection += 50;
         } else if (strcmp(vehicleType, "Truck") == 0) {
-            totalRevenue += 100;
-        } else if (strcmp(vehicleType, "Bike") == 0) {
-            totalRevenue += 20;
-        } else {
-            printf("Invalid vehicle type entered.\n"); // Handle invalid input (optional)
-            i--; // Decrement i to re-enter the vehicle type
-        }
+            collection += 100;
+        } else if (strcmp(vehicleType, "Bike") == 0) { // Added missing {
+            collection += 20;
+        } // Closing brace for the Bike condition (even though it's not strictly necessary with one line)
     }
 
-    printf("Total Toll Collection: ₹%d\n", totalRevenue);
+    printf("Total Toll Collection: %.2f\n", collection); // Corrected label, output format, and moved outside the loop
 
     return 0;
 }
